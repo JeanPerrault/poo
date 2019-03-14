@@ -5,25 +5,25 @@ class Car{
     private $color;
     private $brand;
     private $model;
-    private $roue;
+    private $wheel;
 
     
-        public function __construct($brand, $model, $roue) 
+        public function __construct($brand, $model, $wheel) 
         {
             $this->brand = $brand;
             $this->model = $model;
-            $this->roue = $roue;
+            $this->wheel = $wheel;
         }
         public function setColor($color) 
         {
             $this->color = $color;
             return $this;
         }
-        function drive()
+        public function drive()
         {
-            return 'La '.$this->brand .' '.$this->model. ' roule sur ses '.$this->roue. ' roues. ';
+            return 'La '.$this->brand .' '.$this->model. ' roule sur ses '.$this->wheel. ' roues. ';
         }
-        function klaxon()
+        public function klaxon()
         {
             return 'La voiture '.$this->color .' klaxonne.';
         }
@@ -34,14 +34,14 @@ class Moto{
     private $color;
     private $brand;
     private $model;
-    private $roue;
+    private $wheel;
 
     
-        public function __construct($brand, $model, $roue) 
+        public function __construct($brand, $model, $wheel) 
         {
             $this->brand = $brand;
             $this->model = $model;
-            $this->roue = $roue;
+            $this->wheel = $wheel;
         }
     
         public function setColor($color) 
@@ -49,11 +49,11 @@ class Moto{
             $this->color = $color;
             return $this;
         }
-        function drive()
+        public function drive()
         {
-            return 'La '.$this->brand .' '.$this->model. ' roule sur ses '.$this->roue. ' roues. ';
+            return 'La '.$this->brand .' '.$this->model. ' roule sur ses '.$this->wheel. ' roues. ';
         }
-        function klaxon()
+        public function klaxon()
         {
             return 'La moto '.$this->color .' fait du bruit.';
         }
