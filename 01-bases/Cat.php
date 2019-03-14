@@ -8,6 +8,12 @@ class Cat
 
     function cry()
     {
-        return 'Miaou !';
+        return 'miaou';
     }
+    
+    function eat()
+    {
+        return $this->name . ' mange.';
+    }
+    
 }
