@@ -16,12 +16,13 @@
             require_once 'Form.php';
             
             // On créé un formulaire
-            $form = new Form();
+            $form = new Form($_POST);
 
             // On configure le formulaire
             $form
-                ->input('email')
+                ->input('email', 'email')
                 ->input('firstname')
+                ->input('telephone')
                 ->textarea('message')
                 ->button('Envoyer')
             ;

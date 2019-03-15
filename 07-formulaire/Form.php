@@ -6,14 +6,29 @@
 class Form
 {
     private $fields = [];
+    private $data = [];
 
-    public function input($name)
+    /**
+     * On récupère les données du formulaire
+     */
+    public function __construct($data)
+    {
+        $this->data = $data;
+    }
+
+    public function getData()
+    {
+        return $this->data;
+    }  
+
+    public function input($name, $type = 'text')
     {
         // A chaque appel de la méthode input
         // On ajoute un nouveau champ dans notre tableau
         $this->fields[] = [
             'tag' => 'input',
-            'name' => $name
+            'name' => $name,
+            'type' => $type
         ];
 
         return $this; // On renvoie l'objet pour utiliser les méthodes en chaine
@@ -49,7 +64,7 @@ class Form
      */
     public function __toString()
     {
-        $html = '<form>';
+        $html = '<form method="post">';
         // On affiche tous les champs du formulaire
         foreach ($this->fields as $field) {
             $html .= '<div class="form-group">';
@@ -59,10 +74,13 @@ class Form
                 $html .= '<label for="'.$field['name'].'">'.ucfirst($field['name']).'</label>';
             }
 
+            // On récupère les valeurs des champs
+            $data = $this->data[$field['name']] ?? null;
+
             if ('textarea' === $field['tag']) {
-                $html .= '<textarea name="'.$field['name'].'" id="'.$field['name'].'" class="form-control"></textarea>';
+                $html .= '<textarea name="'.$field['name'].'" id="'.$field['name'].'" class="form-control">'.$data.'</textarea>';
             } else if ('input' === $field['tag']) {
-                $html .= '<input type="text" name="'.$field['name'].'" id="'.$field['name'].'" class="form-control">';
+                $html .= '<input type="'.$field['type'].'" name="'.$field['name'].'" id="'.$field['name'].'" class="form-control" value="'.$data.'">';
             } else {
                 $html .= '<button class="btn btn-block btn-success">'.$field['name'].'</button>';
             }
