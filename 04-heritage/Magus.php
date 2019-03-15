@@ -7,4 +7,9 @@ class Magus extends Character
         parent::__construct($name);
         $this->mana *= 2;
     }
+
+    public function castSpell($character)
+    {
+        $character->health -= $this->mana;
+    }
 }

@@ -3,7 +3,7 @@
 class Character
 {
     private $name;
-    private $health = 100;
+    protected $health = 100;
     protected $strenght = 10;
     protected $mana = 10;
 
