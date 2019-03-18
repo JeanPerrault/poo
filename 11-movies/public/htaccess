@@ -1,5 +1,0 @@
-# RewriteEngine On
-
-# RewriteCond %{EQUEST_NAME} !-d
-# RewriteCond %{EQUEST_NAME} !-f
-# RewriteRule ^ index.php [L]

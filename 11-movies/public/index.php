@@ -1,12 +1,10 @@
 <?php
 
-require_once __DIR__ .'/../config/autoload.php';
+require_once __DIR__ . '/../config/autoload.php';
 
 $uri = $_SERVER['PATH_INFO'] ?? '/';
 
-// on teste si on est sur la page d'accueil
-if ($uri ==='/'){
-    require_once __DIR__ .'/../views/home.php';
+// On teste si on est sur la page d'accueil
+if ($uri === '/') {
+    require_once __DIR__ . '/../views/home.php';
 }
-
-// var_dump($uri);
