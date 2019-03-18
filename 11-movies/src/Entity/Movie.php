@@ -27,15 +27,27 @@ class Movie
      * on affiche seulement les 15 premiers caracteres
      * avec ...
      */
-    public function getSynopsis()
+
+    public function getSynopsis($truncate = 9)
     {
-        $max = 4;
-            $strlen = strlen($this->synopsis);
-            echo substr($this->synopsis,0,$max);
-            if ($strlen > $max) {
-                echo "...";
-            }    
+        $output = $this->synopsis;
+
+        // Si la taille de la chaine est supérieure à $truncate
+        if (strlen($output) > $truncate) {
+            $output = substr($output, 0, $truncate) . '...';
+        }
+
+        return $output;
     }
+    // public function getSynopsis()
+    // {
+    //     $max = 4;
+    //         $strlen = strlen($this->synopsis);
+    //         echo substr($this->synopsis,0,$max);
+    //         if ($strlen > $max) {
+    //             echo "...";
+    //         }    
+    // }
 
 
 }

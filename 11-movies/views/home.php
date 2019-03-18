@@ -13,7 +13,12 @@ echo '<h1>Page d\'accueil</h1>';
 $movieManager = new Manager\MovieManager();
 $movies = $movieManager->findAll();
 
+$actorManager = new Manager\ActorManager();
+$actors = $ActorManager->findAll();
+
 var_dump($movies);
+var_dump($actors);
+
 
 // $movies = Database::getInstance()->query('SELECT * FROM movie')->fetchAll();
 ?>
@@ -37,6 +42,27 @@ var_dump($movies);
                 <td><?= $movie->getSynopsis(); ?></td>
                 <td><?= $movie->getReleasedAt(); ?></td>
                 <td><?= $movie->category; ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Prenom, Nom</th>
+            <th>Age</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <?php foreach ($actors as $actor) { ?>
+            <tr>
+                <td><?= $actor->id; ?></td>
+                <td><?= $actor->getFullname(); ?></td>
+                <td><?= $actor->getAge(); ?></td>
             </tr>
         <?php } ?>
     </tbody>
