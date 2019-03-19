@@ -14,7 +14,7 @@ $movieManager = new Manager\MovieManager();
 $movies = $movieManager->findAll();
 
 $actorManager = new Manager\ActorManager();
-$actors = $ActorManager->findAll();
+$actors = $actorManager->findAll();
 
 var_dump($movies);
 var_dump($actors);
@@ -62,7 +62,7 @@ var_dump($actors);
             <tr>
                 <td><?= $actor->id; ?></td>
                 <td><?= $actor->getFullname(); ?></td>
-                <td><?= $actor->getAge(); ?></td>
+                <td><?= $actor->getAge($actor->birthday); ?> ans</td>
             </tr>
         <?php } ?>
     </tbody>

@@ -17,8 +17,10 @@ class Actors
         return $this->firstname.' '.$this->lastname;
     }
 
-    public function getAge()
+    public function getAge($date)
     {
-        return $this->birthday;
+        return (int) ((time() - strtotime($date)) / 3600 / 24 / 365);
     }
 }
+
+
